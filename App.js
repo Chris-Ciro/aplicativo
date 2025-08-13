@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Seu App de acompanhamento católico!</Text>
+      <Text>Seu App de acompanhamento católico v1!</Text>
       <StatusBar style="auto" />
     </View>
   );
