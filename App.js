@@ -1,20 +1,26 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import LoginScreen from './LoginScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Seu App de acompanhamento católico v1!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <LoginScreen />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  content: {
+    flex: 1,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(255,255,255,0.0)', // transparente
   },
 });
