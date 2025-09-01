@@ -1,30 +1,26 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-export default function LoginScreen({ navigation }) {
+export default function SignInScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* Imagem de fundo superior */}
       <View style={styles.topImageContainer}>
         <Image source={require('./assets/images/capaFundo.jpg')} style={styles.topImage} resizeMode="cover" />
       </View>
-      {/* Card de login */}
       <View style={styles.card}>
         <View style={styles.tabContainer}>
-          <TouchableOpacity style={styles.tabActive}>
-            <Text style={styles.tabTextActive}>Entrar</Text>
+          <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.tabText}>Entrar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('SignIn')}>
-            <Text style={styles.tabText}>Cadastre-se</Text>
+          <TouchableOpacity style={styles.tabActive}>
+            <Text style={styles.tabTextActive}>Cadastre-se</Text>
           </TouchableOpacity>
         </View>
         <TextInput placeholder="E-mail" style={styles.input} placeholderTextColor="#ccc" />
         <TextInput placeholder="Senha" secureTextEntry style={styles.input} placeholderTextColor="#ccc" />
-        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-          <Text style={styles.forgot}>Esqueceu sua senha?</Text>
-        </TouchableOpacity>
+        <TextInput placeholder="Confirme sua senha" secureTextEntry style={styles.input} placeholderTextColor="#ccc" />
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Entrar</Text>
+          <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
         <Text style={styles.or}>OU ACESSE VIA:</Text>
         <View style={styles.socialContainer}>
@@ -86,7 +82,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 8,
     paddingHorizontal: 32,
-    marginRight: 2,
+    marginLeft: 2,
   },
   tab: {
     backgroundColor: '#fff',
@@ -112,12 +108,6 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     fontSize: 15,
     color: '#333',
-  },
-  forgot: {
-    alignSelf: 'flex-end',
-    color: '#aaa',
-    fontSize: 12,
-    marginBottom: 18,
   },
   button: {
     backgroundColor: '#ff7f4f',
