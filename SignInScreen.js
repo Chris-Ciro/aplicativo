@@ -19,7 +19,7 @@ export default function SignInScreen({ navigation }) {
         <TextInput placeholder="E-mail" style={styles.input} placeholderTextColor="#ccc" />
         <TextInput placeholder="Senha" secureTextEntry style={styles.input} placeholderTextColor="#ccc" />
         <TextInput placeholder="Confirme sua senha" secureTextEntry style={styles.input} placeholderTextColor="#ccc" />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
         <Text style={styles.or}>OU ACESSE VIA:</Text>

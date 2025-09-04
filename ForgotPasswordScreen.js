@@ -11,7 +11,7 @@ export default function ForgotPasswordScreen({ navigation }) {
         <Text style={styles.title}>Esqueceu sua senha?</Text>
         <TextInput placeholder="E-mail cadastrado" style={styles.input} placeholderTextColor="#ccc" />
         <Text style={styles.info}>Enviaremos as informações da sua senha para seu e-mail.</Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.buttonText}>Enviar</Text>
         </TouchableOpacity>
       </View>
