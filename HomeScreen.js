@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, backgroundColor: '#f4f4f4ff' }}>
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
@@ -17,7 +17,12 @@ export default function HomeScreen() {
           <TextInput placeholder="Buscar" style={styles.searchInput} placeholderTextColor="#ccc" />
         </View>
         <View style={styles.grid}>
-          <View style={styles.card}><Image source={require('./assets/images/pray.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Orações</Text></View>
+          <View>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('SubMenu')}>
+              <Image source={require('./assets/images/pray.png')} style={styles.cardIcon} />
+              <Text style={styles.cardText}>Orações</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.card}><Image source={require('./assets/images/calendar.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Calendário Litúrgico</Text></View>
           <View style={styles.card}><Image source={require('./assets/images/terco.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Terço</Text></View>
           <View style={styles.card}><Image source={require('./assets/images/sacramentos.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Sacramentos</Text></View>
