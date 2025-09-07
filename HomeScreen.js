@@ -3,7 +3,6 @@ import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView 
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, backgroundColor: '#f4f4f4ff' }}>
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <TouchableOpacity>
@@ -23,7 +22,10 @@ export default function HomeScreen({ navigation }) {
               <Text style={styles.cardText}>Orações</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.card}><Image source={require('./assets/images/calendar.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Calendário Litúrgico</Text></View>
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Calendario')}>
+            <Image source={require('./assets/images/calendar.png')} style={styles.cardIcon} />
+            <Text style={styles.cardText}>Calendário Litúrgico</Text>
+          </TouchableOpacity>
           <View style={styles.card}><Image source={require('./assets/images/terco.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Terço</Text></View>
           <View style={styles.card}><Image source={require('./assets/images/sacramentos.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Sacramentos</Text></View>
           <View style={styles.card}><Image source={require('./assets/images/bible.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Bíblia Sagrada</Text></View>
@@ -32,7 +34,6 @@ export default function HomeScreen({ navigation }) {
           <View style={styles.card}><Image source={require('./assets/images/church.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Histórias da igreja</Text></View>
         </View>
       </ScrollView>
-    </View>
   );
 }
 
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: 32,
     paddingTop: 8,
+    backgroundColor: '#f4f4f4ff'
   },
   header: {
     flexDirection: 'row',

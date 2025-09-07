@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native-web';
 
 export default function ForgotPasswordScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.topImageContainer}>
         <Image source={require('./assets/images/capaFundo.jpg')} style={styles.topImage} resizeMode="cover" />
       </View>
@@ -15,7 +16,7 @@ export default function ForgotPasswordScreen({ navigation }) {
           <Text style={styles.buttonText}>Enviar</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

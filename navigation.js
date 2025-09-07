@@ -5,6 +5,7 @@ import LoginScreen from './LoginScreen';
 import SignInScreen from './SignInScreen';
 import ForgotPasswordScreen from './ForgotPasswordScreen';
 import HomeScreen from './HomeScreen';
+import CalendarioScreen from './CalendarioScreen';
 import SubMenuScreen from './SubMenuScreen';
 
 const Stack = createStackNavigator();
@@ -17,6 +18,7 @@ export default function AppNavigator() {
         <Stack.Screen name="SignIn" component={SignInScreen} />
         <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Calendario" component={CalendarioScreen} />
         <Stack.Screen name="SubMenu" component={SubMenuScreen} />
       </Stack.Navigator>
     </NavigationContainer>

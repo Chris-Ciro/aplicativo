@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={{ alignItems: 'center', paddingBottom: 32, paddingTop: 8, backgroundColor: '#f4f4f4ff' }}>
       {/* Imagem de fundo superior */}
       <View style={styles.topImageContainer}>
         <Image source={require('./assets/images/capaFundo.jpg')} style={styles.topImage} resizeMode="cover" />
@@ -33,7 +33,7 @@ export default function LoginScreen({ navigation }) {
           <Image source={require('./assets/images/twitter.png')} style={styles.socialIcon} />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
