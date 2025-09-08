@@ -28,7 +28,12 @@ export default function HomeScreen({ navigation }) {
           </TouchableOpacity>
           <View style={styles.card}><Image source={require('./assets/images/terco.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Terço</Text></View>
           <View style={styles.card}><Image source={require('./assets/images/sacramentos.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Sacramentos</Text></View>
-          <View style={styles.card}><Image source={require('./assets/images/bible.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Bíblia Sagrada</Text></View>
+
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Biblia')}>
+            <Image source={require('./assets/images/bible.png')} style={styles.cardIcon} />
+            <Text style={styles.cardText}>Bíblia Sagrada</Text>
+          </TouchableOpacity>
+
           <View style={styles.card}><Image source={require('./assets/images/acervo.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Acervo Digital</Text></View>
           <View style={styles.card}><Image source={require('./assets/images/child.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Área Infantil</Text></View>
           <View style={styles.card}><Image source={require('./assets/images/church.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Histórias da igreja</Text></View>

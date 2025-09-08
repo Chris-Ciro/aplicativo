@@ -95,7 +95,7 @@ function getCorIcon(cor) {
   return corToIcon[corFormatada] || null;
 }
 
-export default function CalendarioScreen() {
+export default function CalendarioScreen({ navigation }) {
   const [selectedDate, setSelectedDate] = useState(dataHoje);
   const [liturgia, setLiturgia] = useState(null);
   const [loading, setLoading] = useState(false);
