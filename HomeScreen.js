@@ -26,7 +26,12 @@ export default function HomeScreen({ navigation }) {
             <Image source={require('./assets/images/calendar.png')} style={styles.cardIcon} />
             <Text style={styles.cardText}>Calendário Litúrgico</Text>
           </TouchableOpacity>
-          <View style={styles.card}><Image source={require('./assets/images/terco.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Terço</Text></View>
+
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Terco')}>
+            <Image source={require('./assets/images/terco.png')} style={styles.cardIcon} />
+            <Text style={styles.cardText}>Terço</Text>
+          </TouchableOpacity>
+          
           <View style={styles.card}><Image source={require('./assets/images/sacramentos.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Sacramentos</Text></View>
 
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Biblia')}>

@@ -8,6 +8,7 @@ import HomeScreen from './HomeScreen';
 import CalendarioScreen from './CalendarioScreen';
 import SubMenuScreen from './SubMenuScreen';
 import BibliaScreen from './BibliaScreen';
+import TercoScreen from './TercoScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export default function AppNavigator() {
         <Stack.Screen name="Calendario" component={CalendarioScreen} />
         <Stack.Screen name="SubMenu" component={SubMenuScreen} />
         <Stack.Screen name="Biblia" component={BibliaScreen} />
+        <Stack.Screen name="Terco" component={TercoScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
