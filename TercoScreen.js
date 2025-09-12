@@ -10,41 +10,98 @@ import {
 
 export default function TercoScreen({ navigation }) {
   return (
-    <ScrollView contentContainerStyle={styles.scrollContent} style={{ backgroundColor: "#f4f4f4ff" }}>
-      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", marginTop: 24, marginBottom: 8 }}>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}> 
-          <Image source={require("./assets/images/home.png")} style={{ width: 36, height: 36, marginRight: 12 }} />
+    <ScrollView
+      contentContainerStyle={styles.scrollContent}
+      style={{ backgroundColor: "#f4f4f4ff" }}
+    >
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 24,
+          marginBottom: 8,
+        }}
+      >
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <Image
+            source={require("./assets/images/home.png")}
+            style={{ width: 36, height: 36, marginRight: 12 }}
+          />
         </TouchableOpacity>
         <Text style={[styles.title, { fontSize: 20 }]}>Santo Terço</Text>
       </View>
-      <View style={styles.cardContainer}>
-        <Image source={require("./assets/images/tercoSagrado.png")} style={styles.cardImage} />
-        <Text style={styles.cardText}>O Terço é uma oração tradicional católica que nos ajuda a meditar sobre os principais mistérios da vida de Jesus e Maria. É composto por cinco dezenas, cada uma dedicada a um mistério.</Text>
-      </View>
+      {/* <View style={styles.cardContainer}> */}
+      <Image
+        source={require("./assets/images/tercoSagrado.png")}
+        style={styles.cardImage}
+      />
+      <Text style={styles.cardText}>
+        O Terço é uma oração tradicional católica que nos ajuda a meditar sobre
+        os principais mistérios da vida de Jesus e Maria. É composto por cinco
+        dezenas, cada uma dedicada a um mistério.
+      </Text>
+      {/* </View> */}
       <View style={styles.cardContainer}>
         <Text style={styles.cardTitle}>Passo a passo para rezar o Terço:</Text>
-        <Text style={styles.cardList}>1. Segure o crucifixo e faça o Sinal da Cruz.</Text>
+        <Text style={styles.cardList}>
+          1. Segure o crucifixo e faça o Sinal da Cruz.
+        </Text>
         <Text style={styles.cardList}>2. Reze o Credo.</Text>
         <Text style={styles.cardList}>3. Reze um Pai-Nosso.</Text>
         <Text style={styles.cardList}>4. Reze três Ave-Marias.</Text>
         <Text style={styles.cardList}>5. Reze um Glória ao Pai.</Text>
-        <Text style={styles.cardList}>6. Para cada dezena, anuncie o mistério correspondente, reze um Pai-Nosso, dez Ave-Marias e um Glória ao Pai.</Text>
-        <Text style={styles.cardList}>7. Ao final, reze uma Salve Rainha e agradeça.</Text>
+        <Text style={styles.cardList}>
+          6. Para cada dezena, anuncie o mistério correspondente, reze um
+          Pai-Nosso, dez Ave-Marias e um Glória ao Pai.
+        </Text>
+        <Text style={styles.cardList}>
+          7. Ao final, reze uma Salve Rainha e agradeça.
+        </Text>
       </View>
       <View style={styles.cardContainer}>
-        <Text style={styles.cardTitle}>Mistérios do Terço e dias da semana:</Text>
-        <Text style={styles.cardList}><Text style={{ fontWeight: 'bold' }}>Segunda e Sábado:</Text> Mistérios Gozosos</Text>
-        <Text style={styles.cardList}><Text style={{ fontWeight: 'bold' }}>Terça e Sexta:</Text> Mistérios Dolorosos</Text>
-        <Text style={styles.cardList}><Text style={{ fontWeight: 'bold' }}>Quarta e Domingo:</Text> Mistérios Gloriosos</Text>
-        <Text style={styles.cardList}><Text style={{ fontWeight: 'bold' }}>Quinta-feira:</Text> Mistérios Luminosos</Text>
+        <Text style={styles.cardTitle}>
+          Mistérios do Terço e dias da semana:
+        </Text>
+        <Text style={styles.cardList}>
+          <Text style={{ fontWeight: "bold" }}>Segunda e Sábado:</Text>{" "}
+          Mistérios Gozosos
+        </Text>
+        <Text style={styles.cardList}>
+          <Text style={{ fontWeight: "bold" }}>Terça e Sexta:</Text> Mistérios
+          Dolorosos
+        </Text>
+        <Text style={styles.cardList}>
+          <Text style={{ fontWeight: "bold" }}>Quarta e Domingo:</Text>{" "}
+          Mistérios Gloriosos
+        </Text>
+        <Text style={styles.cardList}>
+          <Text style={{ fontWeight: "bold" }}>Quinta-feira:</Text> Mistérios
+          Luminosos
+        </Text>
       </View>
       <View style={styles.cardContainer}>
         <Text style={styles.cardTitle}>Orações principais:</Text>
-        <Text style={styles.oracao}><Text style={{ fontWeight: 'bold' }}>Pai-Nosso:</Text> Pai nosso que estais no céu, santificado seja o vosso nome...</Text>
-        <Text style={styles.oracao}><Text style={{ fontWeight: 'bold' }}>Ave-Maria:</Text> Ave Maria, cheia de graça, o Senhor é convosco...</Text>
-        <Text style={styles.oracao}><Text style={{ fontWeight: 'bold' }}>Glória ao Pai:</Text> Glória ao Pai, ao Filho e ao Espírito Santo...</Text>
-        <Text style={styles.oracao}><Text style={{ fontWeight: 'bold' }}>Credo:</Text> Creio em Deus Pai todo-poderoso, criador do céu e da terra...</Text>
-        <Text style={styles.oracao}><Text style={{ fontWeight: 'bold' }}>Salve Rainha:</Text> Salve, Rainha, Mãe de Misericórdia, vida, doçura e esperança nossa, salve...</Text>
+        <Text style={styles.oracao}>
+          <Text style={{ fontWeight: "bold" }}>Pai-Nosso:</Text> Pai nosso que
+          estais no céu, santificado seja o vosso nome...
+        </Text>
+        <Text style={styles.oracao}>
+          <Text style={{ fontWeight: "bold" }}>Ave-Maria:</Text> Ave Maria,
+          cheia de graça, o Senhor é convosco...
+        </Text>
+        <Text style={styles.oracao}>
+          <Text style={{ fontWeight: "bold" }}>Glória ao Pai:</Text> Glória ao
+          Pai, ao Filho e ao Espírito Santo...
+        </Text>
+        <Text style={styles.oracao}>
+          <Text style={{ fontWeight: "bold" }}>Credo:</Text> Creio em Deus Pai
+          todo-poderoso, criador do céu e da terra...
+        </Text>
+        <Text style={styles.oracao}>
+          <Text style={{ fontWeight: "bold" }}>Salve Rainha:</Text> Salve,
+          Rainha, Mãe de Misericórdia, vida, doçura e esperança nossa, salve...
+        </Text>
       </View>
     </ScrollView>
   );
@@ -85,10 +142,13 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   cardText: {
+    width: "90%",
     color: "#333",
     fontSize: 15,
     textAlign: "center",
     marginBottom: 8,
+    marginTop: 12,
+    fontWeight: "bold",
   },
   cardTitle: {
     color: "#ff7f4f",

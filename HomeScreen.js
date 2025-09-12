@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
+  const [fraseDoDia, setFraseDoDia] = useState("");
+
+  useEffect(() => {
+    async function fetchFraseDoDia() {
+      try {
+        const hoje = new Date();
+        const pad = n => (n < 10 ? `0${n}` : `${n}`);
+        const ano = hoje.getFullYear();
+        const mes = pad(hoje.getMonth() + 1);
+        const dia = pad(hoje.getDate());
+        const url = `https://liturgia.up.railway.app/v2/?dia=${dia}&mes=${mes}&ano=${ano}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data && data.leituras && data.leituras.salmo && data.leituras.salmo.length > 0) {
+          const refrao = data.leituras.salmo[0].refrao || "";
+          setFraseDoDia(refrao.trim());
+        }
+      } catch (e) {
+        setFraseDoDia("");
+      }
+    }
+    fetchFraseDoDia();
+  }, []);
+
   return (
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
@@ -10,7 +34,7 @@ export default function HomeScreen({ navigation }) {
           </TouchableOpacity>
           <Image source={require('./assets/images/rosario.png')} style={styles.headerImage} />
         </View>
-        <Text style={styles.title}>Deus seja louvado!</Text>
+        <Text style={styles.title}>{fraseDoDia ? `"${fraseDoDia}"` : 'Deus seja louvado!'}</Text>
         <View style={styles.searchContainer}>
           <Image source={require('./assets/images/lupa.png')} style={styles.searchIcon} />
           <TextInput placeholder="Buscar" style={styles.searchInput} placeholderTextColor="#ccc" />
@@ -32,16 +56,30 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.cardText}>Terço</Text>
           </TouchableOpacity>
           
-          <View style={styles.card}><Image source={require('./assets/images/sacramentos.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Sacramentos</Text></View>
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Sacramentos')}>
+            <Image source={require('./assets/images/sacramentos.png')} style={styles.cardIcon} />
+            <Text style={styles.cardText}>Sacramentos</Text>
+          </TouchableOpacity>
 
           <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Biblia')}>
             <Image source={require('./assets/images/bible.png')} style={styles.cardIcon} />
             <Text style={styles.cardText}>Bíblia Sagrada</Text>
           </TouchableOpacity>
 
-          <View style={styles.card}><Image source={require('./assets/images/acervo.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Acervo Digital</Text></View>
-          <View style={styles.card}><Image source={require('./assets/images/child.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Área Infantil</Text></View>
-          <View style={styles.card}><Image source={require('./assets/images/church.png')} style={styles.cardIcon} /><Text style={styles.cardText}>Histórias da igreja</Text></View>
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Acervo')}>
+            <Image source={require('./assets/images/acervo.png')} style={styles.cardIcon} />
+            <Text style={styles.cardText}>Acervo Digital</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Kids')}>
+            <Image source={require('./assets/images/child.png')} style={styles.cardIcon} />
+            <Text style={styles.cardText}>Área Infantil</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Historia')}>
+            <Image source={require('./assets/images/church.png')} style={styles.cardIcon} />
+            <Text style={styles.cardText}>Histórias da igreja</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
   );
@@ -83,12 +121,14 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   title: {
-    fontSize: 22,
+    width: '100%',
+    fontSize: 18,
+    textAlign: 'center',
     fontWeight: 'bold',
+    fontStyle: 'italic',
     color: '#ff7f4f',
     marginBottom: 16,
     alignSelf: 'flex-start',
-    marginLeft: 32,
   },
   searchContainer: {
     flexDirection: 'row',

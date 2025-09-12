@@ -119,6 +119,17 @@ export default function CalendarioScreen({ navigation }) {
     fetchLiturgia();
   }, [selectedDate]);
 
+  // Função para extrair a primeira frase do salmo do dia
+  function getFraseDoDia() {
+    if (liturgia && liturgia.leituras && liturgia.leituras.salmo && liturgia.leituras.salmo.length > 0) {
+      const texto = liturgia.leituras.salmo[0].texto || "";
+      // Extrai a primeira frase (até o primeiro ponto final ou quebra de linha)
+      const match = texto.match(/^(.*?[\.!?])(\s|$)/);
+      return match ? match[1].trim() : texto.trim();
+    }
+    return "";
+  }
+
   return (
     <ScrollView
       contentContainerStyle={styles.scrollContent}
@@ -126,7 +137,7 @@ export default function CalendarioScreen({ navigation }) {
       showsVerticalScrollIndicator={true}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-evenly", marginTop: 15, marginBottom: 8, width: '100%' }}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home', { fraseDoDia: getFraseDoDia() })}>
           <Image source={require('./assets/images/home.png')} style={{ width: 36, height: 36, marginRight: 12 }} />
         </TouchableOpacity>
         <Text style={[styles.title, { fontSize: 20 }]}>Calendário Litúrgico {anoAtual}</Text>

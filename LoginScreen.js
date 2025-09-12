@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
+  const [fraseDoDia, setFraseDoDia] = useState("");
+
+  useEffect(() => {
+    async function fetchFraseDoDia() {
+      try {
+        const hoje = new Date();
+        const pad = n => (n < 10 ? `0${n}` : `${n}`);
+        const ano = hoje.getFullYear();
+        const mes = pad(hoje.getMonth() + 1);
+        const dia = pad(hoje.getDate());
+        const url = `https://liturgia.up.railway.app/v2/?dia=${dia}&mes=${mes}&ano=${ano}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data && data.leituras && data.leituras.salmo && data.leituras.salmo.length > 0) {
+          const refrao = data.leituras.salmo[0].refrao || "";
+          setFraseDoDia(refrao.trim());
+        }
+      } catch (e) {
+        setFraseDoDia("");
+      }
+    }
+    fetchFraseDoDia();
+  }, []);
+
   return (
     <ScrollView contentContainerStyle={{ alignItems: 'center', paddingBottom: 32, paddingTop: 8, backgroundColor: '#f4f4f4ff' }}>
       {/* Imagem de fundo superior */}
@@ -33,6 +57,12 @@ export default function LoginScreen({ navigation }) {
           <Image source={require('./assets/images/twitter.png')} style={styles.socialIcon} />
         </View>
       </View>
+      {/* Frase do dia abaixo do card */}
+      {fraseDoDia ? (
+        <Text style={{ color: '#ff7f4f', fontWeight: 'bold', fontSize: 16, textAlign: 'center', marginTop: 35, fontStyle: 'italic', width: '100%' }}>
+          "{fraseDoDia}"
+        </Text>
+      ) : null}
     </ScrollView>
   );
 }
