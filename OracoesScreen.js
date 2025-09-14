@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 
-export default function SubMenuScreen({ navigation }) {
+export default function OracoesScreen({ navigation }) {
   return (
     <View style={{ flex: 1, backgroundColor: '#f4f4f4ff' }}>
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
@@ -12,10 +12,19 @@ export default function SubMenuScreen({ navigation }) {
         </View>
         <View style={styles.grid}>
           <View>
-            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Login')}>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('SubOracoes')}>
               <View>
                 <Text style={styles.cardTitle}>Orações de Adoração</Text>
                 <Text style={styles.cardText}>Orações de AdoraçãoOrações de AdoraçãoOrações de AdoraçãoOrações de Adoração!</Text>
+              </View>
+              <Image source={require('./assets/images/pray.png')} style={styles.cardIcon} />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('SubOracoes')}>
+              <View>
+                <Text style={styles.cardTitle}>Orações de súplica</Text>
+                <Text style={styles.cardText}>Orações de súplicaOrações de súplicaOrações de súplicaOrações de súplica!</Text>
               </View>
               <Image source={require('./assets/images/pray.png')} style={styles.cardIcon} />
             </TouchableOpacity>
@@ -63,9 +72,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#ff7f4f',
+    color: '#000000',
     marginBottom: 16,
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     marginLeft: 32,
   },
   searchContainer: {
@@ -122,14 +131,14 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   cardTitle: {
-    color: '#ff7f4f',
+    color: '#000000',
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'left',
     marginBottom: '5px',
   },
   cardText: {
-    color: '#ff7f4f',
+    color: '#000000',
     fontSize: 11,
     flexWrap: 'wrap',
     textAlign: 'justify',

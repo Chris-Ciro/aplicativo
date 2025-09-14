@@ -41,7 +41,7 @@ export default function HomeScreen({ navigation }) {
         </View>
         <View style={styles.grid}>
           <View>
-            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('SubMenu')}>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Oracoes')}>
               <Image source={require('./assets/images/pray.png')} style={styles.cardIcon} />
               <Text style={styles.cardText}>Orações</Text>
             </TouchableOpacity>
