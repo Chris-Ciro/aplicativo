@@ -14,6 +14,10 @@ import AcervoScreen from './AcervoScreen';
 import KidsScreen from './KidsScreen';
 import HistoriaScreen from './HistoriaScreen';
 import SubOracoesScreen from './SubOracoes';
+import MisteriosGozososScreen from './MisteriosGozososScreen'; 
+import MisteriosDolorososScreen from './MisteriosDolorososScreen'; 
+import MisteriosLuminososScreen from './MisteriosLuminososScreen'; 
+import MisteriosGloriososScreen from './MisteriosGloriososScreen'; 
 
 const Stack = createStackNavigator();
 
@@ -36,6 +40,10 @@ export default function AppNavigator() {
         <Stack.Screen name="Acervo" component={AcervoScreen} />
         <Stack.Screen name="Kids" component={KidsScreen} />
         <Stack.Screen name="Historia" component={HistoriaScreen} />
+        <Stack.Screen name="MisteriosGozosos" component={MisteriosGozososScreen} />
+        <Stack.Screen name="MisteriosDolorosos" component={MisteriosDolorososScreen} />
+        <Stack.Screen name="MisteriosGloriosos" component={MisteriosGloriososScreen} />
+        <Stack.Screen name="MisteriosLuminosos" component={MisteriosLuminososScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -61,24 +61,24 @@ export default function TercoScreen({ navigation }) {
       </View>
       <View style={styles.cardContainer}>
         <Text style={styles.cardTitle}>
-          Mistérios do Terço e dias da semana:
+          Mistérios do Terço:
         </Text>
-        <Text style={styles.cardList}>
-          <Text style={{ fontWeight: "bold" }}>Segunda e Sábado:</Text>{" "}
+        <TouchableOpacity style={styles.misterios} onPress={() => navigation.navigate('MisteriosGozosos')}>
+          <Text style={{ fontWeight: "bold" }}>Segunda e Sábado: </Text>{"  "}
           Mistérios Gozosos
-        </Text>
-        <Text style={styles.cardList}>
-          <Text style={{ fontWeight: "bold" }}>Terça e Sexta:</Text> Mistérios
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.misterios} onPress={() => navigation.navigate('MisteriosDolorosos')}>
+          <Text style={{ fontWeight: "bold" }}>Terça e Sexta: </Text> Mistérios
           Dolorosos
-        </Text>
-        <Text style={styles.cardList}>
-          <Text style={{ fontWeight: "bold" }}>Quarta e Domingo:</Text>{" "}
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.misterios} onPress={() => navigation.navigate('MisteriosGloriosos')}>
+          <Text style={{ fontWeight: "bold" }}>Quarta e Domingo: </Text>{" "}
           Mistérios Gloriosos
-        </Text>
-        <Text style={styles.cardList}>
-          <Text style={{ fontWeight: "bold" }}>Quinta-feira:</Text> Mistérios
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.misterios} onPress={() => navigation.navigate('MisteriosLuminosos')}>
+          <Text style={{ fontWeight: "bold" }}>Quinta-feira: </Text> Mistérios
           Luminosos
-        </Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.cardContainer}>
         <Text style={styles.cardTitle}>Orações principais:</Text>
@@ -170,5 +170,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     textAlign: "justify",
     width: "100%",
+  },
+  misterios: {
+    flexDirection: "row",
+    paddingBottom: 8,
   },
 });
